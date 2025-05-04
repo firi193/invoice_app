@@ -6,15 +6,18 @@ WORKDIR /app
 # Set PYTHONPATH for internal imports like `from reports import reports`
 ENV PYTHONPATH=/app
 
-# Copy the requirements file and install dependencies
+# Copy requirements and install dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the entire app folder into the container
 COPY ./app /app
 
+# Add debug to check files in the container
+RUN ls -R /app
+
 # Expose the port
 EXPOSE 8000
 
-# Start the FastAPI app
+# Start the FastAPI app with the correct path
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
