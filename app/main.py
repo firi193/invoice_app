@@ -24,4 +24,7 @@ def report_top_invoices():
     return reports.top_invoice_totals()
 
 
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="127.0.0.1")
 

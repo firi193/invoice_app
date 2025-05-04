@@ -6,7 +6,12 @@ from pipeline.ingest import Ingestor
 import logging
 import traceback
 
-DB_URL = "postgresql://invoice_db_6gwd_user:OVSuQM8IQWK6NHpGCy53rkYELDPH7zvE@dpg-d0bm76buibrs73dfnbmg-a.oregon-postgres.render.com/invoice_db_6gwd"
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+DB_URL = os.getenv("DB_URL")
 
 logging.basicConfig(level=logging.INFO)
 
