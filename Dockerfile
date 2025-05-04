@@ -6,7 +6,7 @@ WORKDIR /app
 # Set PYTHONPATH for internal imports like `from reports import reports`
 ENV PYTHONPATH=/app
 
-# Copy requirements and install dependencies
+# Copy the requirements file and install dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
