@@ -1,20 +1,20 @@
-# Dockerfile
 FROM python:3.12-slim
 
 # Set working directory
 WORKDIR /app
 
+# Set PYTHONPATH for internal imports like `from reports import reports`
 ENV PYTHONPATH=/app
 
-# Install dependencies
+# Copy requirements and install dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy project files
-COPY . .
+# Copy the entire app folder into the container
+COPY ./app /app
 
-# Expose port
+# Expose the port
 EXPOSE 8000
 
-# Run the application
+# Start the FastAPI app
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
