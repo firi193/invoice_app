@@ -1,5 +1,20 @@
+# Virtual environment
 venv/
+
+# Python cache files
 __pycache__/
-*.pyc
+*.py[cod]
+*.so
+
+# Environment files
 .env
+
+# macOS metadata
 .DS_Store
+
+# CSV data files
+data/*.csv
+
+# General CSV exclusion (if they’re outside a specific folder too)
+*.csv
+
